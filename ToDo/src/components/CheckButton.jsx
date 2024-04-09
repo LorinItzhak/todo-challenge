@@ -3,7 +3,7 @@ import icon from '../../../images/icon-check.svg';
 
 const CheckButton = () => {
     return (
-        <button>
+        <button className='check'>
              <img src={icon} />
         </button>
     );

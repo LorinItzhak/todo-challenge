@@ -22,6 +22,7 @@ export const CreateToDo = ({ addTodo }) => {
                 value={todoText} 
                 placeholder="Create a new todo..." 
                 onChange={handleChange} 
+                className='create'
             />
         </form>
     );

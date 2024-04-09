@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(../../images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size :contain;
+    padding-top: 10%;
+    background-color: rgb(247, 247, 247);
+}
+
+.app-container{
+    width: 400px;
+
+}
+
+.head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.dark-light{
+    background-image: url('../../images/icon-moon.svg');
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.create{
+    width: 400px;
+    height: 40px;
+    padding-left:15px ;
+    border:0; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.todo-list{
+    width: 407px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 10px;
+}
+
+.todo-list li {
+    width: 400px;
+    height: 45px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+  }
+
+  .todo-list li span {
+    font-size: 16px; 
+    color: rgb(119, 119, 119);
+  }

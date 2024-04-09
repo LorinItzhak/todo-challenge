@@ -3,7 +3,7 @@ import icon from '../../../images/icon-cross.svg';
 
 const CrossButton = () => {
     return (
-        <button>
+        <button className='cross'>
              <img src={icon}/>
         </button>
     );
