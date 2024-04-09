@@ -6,3 +6,10 @@
 h1 {
   text-align: center;
 }
+#todo-item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 4px solid #f1f1f1;
+
+}
