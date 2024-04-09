@@ -1,9 +1,11 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [todos, setTodos] = useState([]);
   return (
     <>
-      <h1>todo list</h1>
+      <h1>Todo</h1>
     </>
   );
 }
