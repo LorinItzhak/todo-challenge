@@ -16,6 +16,12 @@ function App() {
   const removeTodo = (text) => {
     setTodos(todos.filter((todo) => todo.text !== text));
   };
+  const toggleTodoCompleted = (text) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos = [...todos];
+    newTodos[todoIndex].isCompleted = !newTodos[todoIndex].isCompleted;
+    setTodos(newTodos);
+  };
   return (
     <>
       <h1>Todo</h1>
@@ -30,6 +36,7 @@ function App() {
               text={todo.text}
               isCompleted={todo.isCompleted}
               removeTodo={removeTodo}
+              toggleTodoCompleted={toggleTodoCompleted}
             />
           </Row>
         ))}

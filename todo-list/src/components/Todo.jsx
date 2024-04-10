@@ -1,11 +1,23 @@
 import CloseButton from 'react-bootstrap/CloseButton';
 
-const Todo = ({ text, isCompleted, removeTodo }) => {
+const Todo = ({ text, isCompleted, removeTodo, toggleTodoCompleted }) => {
   const handleRemoveClick = () => {
     removeTodo(text);
   };
+  const handleCheckboxClick = (e) => {
+    const parantDiv = e.target.parentElement.parentElement;
+    parantDiv.classList.toggle('completed');
+    toggleTodoCompleted(text);
+  };
   return (
-    <div id="todo-item" className="d-flex justify-content-between">
+    <div className="d-flex justify-content-between ">
+      <div>
+        <input
+          type="checkbox"
+          defaultChecked={isCompleted}
+          onClick={handleCheckboxClick}
+        />
+      </div>
       <p>{text}</p>
       <div>
         <CloseButton onClick={handleRemoveClick} />

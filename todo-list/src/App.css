@@ -13,3 +13,6 @@ h1 {
   border: 4px solid #f1f1f1;
 
 }
+.completed {
+  text-decoration: line-through;
+}
