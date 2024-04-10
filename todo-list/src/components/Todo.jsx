@@ -10,7 +10,7 @@ const Todo = ({ text, isCompleted, removeTodo, toggleTodoCompleted }) => {
     toggleTodoCompleted(text);
   };
   return (
-    <div className="d-flex justify-content-between ">
+    <div className="d-flex justify-content-between todo-item">
       <div>
         <input
           type="checkbox"

@@ -6,7 +6,7 @@
 h1 {
   text-align: center;
 }
-#todo-item {
+.todo-item {
   width: 100%;
   display: flex;
   justify-content: center;
