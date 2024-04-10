@@ -30,10 +30,26 @@ const App = () => {
   };
 
   const toggleTodoCompleted = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id);
-    const newTodos = [...todos];
-    newTodos[todoIndex].isCompleted = !newTodos[todoIndex].isCompleted;
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      }
+      return todo;
+    });
     setTodos(newTodos);
+    setTodosToShow(newTodos);
+  };
+
+  const filterTodosByStatus = (status) => {
+    if (status === 'all') {
+      setTodosToShow(todos);
+    } else if (status === 'completed') {
+      const newTodosToShow = todos.filter((todo) => todo.isCompleted);
+      setTodosToShow(newTodosToShow);
+    } else if (status === 'active') {
+      const newTodosToShow = todos.filter((todo) => !todo.isCompleted);
+      setTodosToShow(newTodosToShow);
+    }
   };
 
   return (
@@ -45,7 +61,7 @@ const App = () => {
         removeTodo={removeTodo}
         toggleTodoCompleted={toggleTodoCompleted}
       />
-      <FilterTodos setTodosToShow={setTodosToShow} />
+      <FilterTodos filterTodosByStatus={filterTodosByStatus} />
     </>
   );
 };

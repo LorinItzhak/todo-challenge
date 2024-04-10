@@ -1,33 +1,29 @@
 import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import FormCheckInput from 'react-bootstrap/esm/FormCheckInput';
 const Todo = ({ todo, removeTodo, toggleTodoCompleted }) => {
-  const [isCompletedState, setIsCompletedState] = useState(todo.isCompleted);
   const handleRemoveClick = () => {
     removeTodo(todo.id);
   };
-  const handleCheckboxClick = (e) => {
-    const parantDiv = e.target.parentElement.parentElement;
+  const handleCheckboxChange = (e) => {
+    const parantDiv = e.target.parentElement;
     parantDiv.classList.toggle('completed');
-    setIsCompletedState(!isCompletedState);
     toggleTodoCompleted(todo.id);
   };
   const todoItemStyle = {
-    textDecoration: isCompletedState ? 'line-through' : 'none',
-    color: isCompletedState ? 'gray' : 'inherit',
+    textDecoration: todo.isCompleted ? 'line-through' : 'none',
+    color: todo.isCompleted ? 'gray' : 'inherit',
   };
   return (
     <div
       className="d-flex justify-content-between todo-item"
       style={todoItemStyle}
     >
-      <div>
-        <input
-          type="checkbox"
-          defaultChecked={isCompletedState}
-          onClick={handleCheckboxClick}
-        />
-      </div>
+      <FormCheckInput
+        type="checkbox"
+        checked={todo.isCompleted}
+        onChange={handleCheckboxChange}
+      />
       <p>{todo.text}</p>
       <div>
         <CloseButton onClick={handleRemoveClick} />
