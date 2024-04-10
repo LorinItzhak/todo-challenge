@@ -1,10 +1,11 @@
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 const AddTodoForm = ({ addTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const todoText = e.target.elements[0].value;
+    if (!todoText) return;
     const todo = { text: todoText, isCompleted: false };
     addTodo(todo);
     e.target.reset();
@@ -17,6 +18,10 @@ const AddTodoForm = ({ addTodo }) => {
       </Form.Group>
     </Form>
   );
+};
+
+AddTodoForm.propTypes = {
+  addTodo: PropTypes.func.isRequired,
 };
 
 export default AddTodoForm;

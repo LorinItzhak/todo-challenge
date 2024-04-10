@@ -1,6 +1,14 @@
 import CloseButton from 'react-bootstrap/CloseButton';
+import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 const Todo = ({ text, isCompleted, removeTodo, toggleTodoCompleted }) => {
+  useEffect(() => {
+    if (isCompleted) {
+      const parantDiv = document.querySelector('.todo-item');
+      parantDiv.classList.add('completed');
+    }
+  }, [isCompleted]);
   const handleRemoveClick = () => {
     removeTodo(text);
   };
@@ -24,6 +32,13 @@ const Todo = ({ text, isCompleted, removeTodo, toggleTodoCompleted }) => {
       </div>
     </div>
   );
+};
+
+Todo.prototype = {
+  text: PropTypes.string.isRequired,
+  isCompleted: PropTypes.bool.isRequired,
+  removeTodo: PropTypes.func.isRequired,
+  toggleTodoCompleted: PropTypes.func.isRequired,
 };
 
 export default Todo;

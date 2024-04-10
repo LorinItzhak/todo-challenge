@@ -16,3 +16,8 @@ h1 {
 .completed {
   text-decoration: line-through;
 }
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

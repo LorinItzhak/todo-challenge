@@ -3,24 +3,45 @@ import AddTodoForm from './components/AddTodoForm';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Todo from './components/Todo';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Button, ButtonGroup } from 'react-bootstrap';
 
-function App() {
+const App = () => {
   const [todos, setTodos] = useState([
     { text: 'Hi , I am your first todo', isCompleted: false },
   ]);
+
+  const [todosToShow, setTodosToShow] = useState([...todos]);
+
   const addTodo = (todo) => {
-    setTodos([...todos, todo]);
-    console.log(todos);
+    const newTodos = [...todos, todo];
+    setTodos(newTodos);
+    setTodosToShow(newTodos);
   };
+
   const removeTodo = (text) => {
-    setTodos(todos.filter((todo) => todo.text !== text));
+    const newTodos = todos.filter((todo) => todo.text !== text);
+    setTodos(newTodos);
+    setTodosToShow(newTodos);
   };
+
   const toggleTodoCompleted = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos = [...todos];
     newTodos[todoIndex].isCompleted = !newTodos[todoIndex].isCompleted;
     setTodos(newTodos);
+    setTodosToShow(newTodos);
+  };
+
+  const showTodosByStatus = (status) => {
+    if (status === 'All') {
+      setTodosToShow(todos);
+    } else if (status === 'Active') {
+      const activeTodos = todos.filter((todo) => !todo.isCompleted);
+      setTodosToShow(activeTodos);
+    } else if (status === 'Completed') {
+      const completedTodos = todos.filter((todo) => todo.isCompleted);
+      setTodosToShow(completedTodos);
+    }
   };
   return (
     <>
@@ -29,7 +50,7 @@ function App() {
         <AddTodoForm addTodo={addTodo} />
       </Container>
       <Container id="todo-list">
-        {todos.map((todo, index) => (
+        {todosToShow.map((todo, index) => (
           <Row key={index}>
             <Todo
               key={index}
@@ -40,9 +61,26 @@ function App() {
             />
           </Row>
         ))}
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="secondary" onClick={() => showTodosByStatus('All')}>
+            All
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => showTodosByStatus('Active')}
+          >
+            Active
+          </Button>
+          <Button
+            variant="secondary"
+            onClick={() => showTodosByStatus('Completed')}
+          >
+            completed
+          </Button>
+        </ButtonGroup>
       </Container>
     </>
   );
-}
+};
 
 export default App;
