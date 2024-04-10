@@ -1,44 +1,43 @@
 import CloseButton from 'react-bootstrap/CloseButton';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-
-const Todo = ({ text, isCompleted, removeTodo, toggleTodoCompleted }) => {
-  useEffect(() => {
-    if (isCompleted) {
-      const parantDiv = document.querySelector('.todo-item');
-      parantDiv.classList.add('completed');
-    }
-  }, [isCompleted]);
+import { useState } from 'react';
+const Todo = ({ todo, removeTodo, toggleTodoCompleted }) => {
+  const [isCompletedState, setIsCompletedState] = useState(todo.isCompleted);
   const handleRemoveClick = () => {
-    removeTodo(text);
+    removeTodo(todo.id);
   };
   const handleCheckboxClick = (e) => {
     const parantDiv = e.target.parentElement.parentElement;
     parantDiv.classList.toggle('completed');
-    toggleTodoCompleted(text);
+    setIsCompletedState(!isCompletedState);
+    toggleTodoCompleted(todo.id);
+  };
+  const todoItemStyle = {
+    textDecoration: isCompletedState ? 'line-through' : 'none',
+    color: isCompletedState ? 'gray' : 'inherit',
   };
   return (
-    <div className="d-flex justify-content-between todo-item">
+    <div
+      className="d-flex justify-content-between todo-item"
+      style={todoItemStyle}
+    >
       <div>
         <input
           type="checkbox"
-          defaultChecked={isCompleted}
+          defaultChecked={isCompletedState}
           onClick={handleCheckboxClick}
         />
       </div>
-      <p>{text}</p>
+      <p>{todo.text}</p>
       <div>
         <CloseButton onClick={handleRemoveClick} />
       </div>
     </div>
   );
 };
-
-Todo.prototype = {
-  text: PropTypes.string.isRequired,
-  isCompleted: PropTypes.bool.isRequired,
+Todo.propTypes = {
+  todo: PropTypes.object.isRequired,
   removeTodo: PropTypes.func.isRequired,
   toggleTodoCompleted: PropTypes.func.isRequired,
 };
-
 export default Todo;
