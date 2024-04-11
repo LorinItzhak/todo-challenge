@@ -12,17 +12,14 @@ body {
 
 h1 {
   font-size: 4rem;
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center;
-  padding-left: 570px; /* Add some padding to the left of the h1 */
-  padding-right: 570px; /* Add some padding to the right of the h1 */
+  display: flex; /* Use flexbox */
+  justify-content:space-evenly; /* Align children with space in between */
+  align-items: center; /* Align items vertically in the center */
 }
 
-.icon-mode {
-  margin-left: 20px; /* Add margin to the left of the icon to space it out */
+icon-mode {
+  margin-left: auto; /* Move the icon-mode to the right */
 }
-
 
 
 
@@ -101,29 +98,4 @@ li {
   padding: 8px 12px;
   font-size: 1.4rem;
   margin-left: 10px;
-}
-
-.info-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  padding-left: 400px;
-  padding-right: 400px;
-
-}
-
-.options-container {
-  display: flex;
-  gap: 20px; /* Space between options */
-}
-
-.option {
-  font-size: 1.6rem;
-  cursor: pointer;
-}
-
-.selected {
-  font-weight: bold;
-  color: blue; /* Change color when selected */
 }
