@@ -1,0 +1,10 @@
+.add_div{
+    width: 380px;
+    background-color:white;
+    height: 50px;
+    display: flex;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: hsl(235, 19%, 35%);
+}

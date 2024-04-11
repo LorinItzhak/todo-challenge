@@ -1,0 +1,18 @@
+.setting{
+    background-color: white;
+    border: 2px solid none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: navy;
+    display:flex ;
+    width: 500px;
+}
+.btn{
+    background:transparent;
+    color:hsl(236, 9%, 61%)
+}
