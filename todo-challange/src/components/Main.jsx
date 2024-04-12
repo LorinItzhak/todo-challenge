@@ -21,7 +21,7 @@ const Main = () => {
       alteredList[id - 1].active = !alteredList[id - 1].active;
       return alteredList;
     });
-  const clearTasks = () => setTasksList([]);
+  const clearTasks = () => setTasksList(oldTask => oldTask.filter(task=>task.active));
   const alterSelected = (newSelect) => setSelected((oldSelect) => newSelect);
   useEffect(() => 
   setFilteredTasksList((oldList) => tasksList.filter(task=>{
@@ -36,12 +36,12 @@ const Main = () => {
   })),
    [tasksList,selected]);
   return (
-    <div>
+    <div className="main">
       <h1>TODO</h1>
       <div>
         <AddTask addTaskHandler={addTask} />
       </div>
-      <div>
+      <div className="taskList">
         {filteredTasksList.map(({ id, description, active }) => (
           <Task
             key={id}

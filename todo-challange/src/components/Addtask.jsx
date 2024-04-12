@@ -8,7 +8,7 @@ const AddTask = ({ addTaskHandler }) => {
   };
   return (
     <div>
-      <input onInput={onInput} value={value}></input>
+      <input className="addTask" onInput={onInput} value={value}></input>
       <button onClick={onSubmit}>Submit task</button>
     </div>
   );
