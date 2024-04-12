@@ -1,5 +1,6 @@
 const ACTIVE = "Active";
 const COMPLETED = "Completed";
+const ALL = "All";
 
 const tasks = [
   {
@@ -31,5 +32,6 @@ const tasks = [
 export {
     tasks,
     ACTIVE,
-    COMPLETED
+    COMPLETED,
+    ALL
 };
