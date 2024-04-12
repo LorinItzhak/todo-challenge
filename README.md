@@ -1,20 +1,8 @@
-# Frontend Mentor - Todo app
+# React + Vite
 
-![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## The challenge
+Currently, two official plugins are available:
 
-Your challenge is to build out this todo app **using react** and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge.
-
-The users should be able to:
-
-- Add new todos to the list
-- Mark todos as complete
-- Delete todos from the list
-- Filter by all/active/complete todos
-- Clear all completed todos
-- **Bonus**: Toggle light and dark mode
-- **Bonus**: Drag and drop to reorder items on the list
-- **Bonus**: Refreshing the page will not delete the the current todo list
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
