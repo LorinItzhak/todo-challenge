@@ -4,9 +4,18 @@ import { Home } from './components/Home/Home';
 
 function App() {
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  }
+
   return (
     <>
-      <div>
+      <div className={isDarkMode ? 'darkMode' : 'lighMode'}>
+      <button className='DisplayToggle' onClick={handleDarkMode}>
+          
+      </button>
         <Home />
       </div>
     </>
