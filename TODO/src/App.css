@@ -1,0 +1,149 @@
+
+body {
+   background-color: hsl(235, 21%, 11%); 
+  background-image: url('bg-desktop-dark.jpg'); 
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top center;
+  font-weight: 400 ;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  
+
+}
+
+
+  
+  
+#root {
+  width: 483px;
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  /* text-align: center; */
+  background-color:   hsl(235, 24%, 19%);
+  font-family: 'Josefin Sans', sans-serif;
+  
+}
+
+
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.todo-button {
+  
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+
+
+
+.completed {
+  color: hsl(236, 33%, 92%);
+  text-decoration: line-through;
+  opacity: 0.5; /* כדי להפחית את השקיפות של המשימה */
+}
+
+.todo-list {
+  margin: 0;
+  position: fixed;
+  flex-direction: column;
+  overflow-y: scroll; /* גלילה אופקית בלבד */
+  max-height: 200px;
+  gap: 10px; /* הרווח בין כל ריבוע */
+}
+
+input[type="text" i] {
+  font-size: 18px;
+  background-color: transparent;
+  padding-block: 1px;
+  border-bottom: none;
+  border: none;
+  width: 100%;
+  height: 120%;
+  padding-inline: 2px;
+}
+
+input[type="submit" i] {
+  
+}
+
+h1 {
+  margin-top: -330px;
+  margin-bottom: 50px;
+  color: hsl(0, 0%, 98%);
+  font-weight: 700;
+  position: relative; 
+}
+
+.todo-form {
+  width: 510px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.3rem;
+  background-color: hsl(235, 24%, 19%);
+  display: flex;
+  /* align-items: flex-end; */
+  margin-bottom: 20px;
+  align-items: center;
+  position: sticky; /* נוסיף פוזיציונינג מדבק */
+  top: 0; /* נגדיר את הקטן עליון של האלמנט לחלק העליון של המסך */
+  z-index: 1; /* נגדיר אינדקס עליון כדי שהוא ישאר מעל רשימת המשימות */
+}
+
+
+.todo-item {
+  margin: 0;
+  background-color: hsl(235, 24%, 19%);
+  width: 495px;
+  color: hsl(234, 39%, 85%);
+  flex-grow: 1;
+  padding: 10px;
+  border-bottom: 1px solid #433f55;
+  transition: all 0.3s ease;
+}
+
+.todo-item:hover {
+  background-color: #433f55;
+}
