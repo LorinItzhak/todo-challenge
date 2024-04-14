@@ -1,23 +1,8 @@
-.LightHome {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    margin-top: 150px;
-}
-
 h1 {
     position: absolute;
     margin-right: 250px;
     top: 40px;
-}
-
-.lightModeImg {
-    top: 0;
-    width: 100vw;
-    height: 280px;
-    position: relative;
+    letter-spacing: 9px;
 }
 
 .LightHome span {

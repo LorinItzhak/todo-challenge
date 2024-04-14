@@ -6,7 +6,7 @@ export const DarkHome = () => {
 
     return <>
         <img className="darkModeImg" src={bgDesktopDark} />
-        <h1>T O D O</h1>
+        <h1>TODO</h1>
         <div className='DarkHome'>
             <div className='toDoListAndCreate'>
                 <DarkTodoList />

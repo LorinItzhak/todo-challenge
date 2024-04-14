@@ -5,7 +5,7 @@ export const LightHome = () => {
 
     return <>
         <img className="lightModeImg" src={bgDesktopLight} />
-        <h1>T O D O</h1>
+        <h1>TODO</h1>
         <div className='LightHome'>
             <div className='toDoListAndCreate'>
                 <LightTodoList />

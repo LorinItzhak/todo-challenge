@@ -4,12 +4,12 @@ import { LightTodo } from "../Todo/LightTodo"
 import './LightTodoList.css'
 import { DndProvider } from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
+import { getTodos, setTodosToLocalStorage } from '../../Services/localStorage';
 
 export const LightTodoList = () => {
 
     const [todos, setTodos] = useState(() => {
-        const storedTodos = localStorage.getItem('todos');
-        return storedTodos ? JSON.parse(storedTodos) : [];
+        return getTodos();
     });
 
     const handleKeyDown = (e, todos, setTodos) => {
@@ -20,7 +20,7 @@ export const LightTodoList = () => {
                 completed: false,
             };
             setTodos([...todos, newTodo]);
-            localStorage.setItem('todos', JSON.stringify([...todos, newTodo]));
+            setTodosToLocalStorage([...todos, newTodo]);
             e.target.value = '';
         }
     }
@@ -30,7 +30,7 @@ export const LightTodoList = () => {
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         );
         setTodos(updatedTodos);
-        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        setTodosToLocalStorage(updatedTodos);
     }
 
     let numOfItemsLeft = 0; 
@@ -42,12 +42,11 @@ export const LightTodoList = () => {
 
     const handleClearCompleted = () => {
         setTodos(todos.filter(todo => !todo.completed));
-        localStorage.setItem('todos', JSON.stringify(todos.filter(todo => !todo.completed)));
+        setTodosToLocalStorage(todos.filter(todo => !todo.completed));
     }
 
     const handleFilter = (option) => {
-        const storedTodos = localStorage.getItem('todos');
-        let displayTodos = JSON.parse(storedTodos);
+        let displayTodos = getTodos();
         switch(option) {
             case 'active':
                 setTodos(displayTodos.filter(todo => !todo.completed));
@@ -56,15 +55,15 @@ export const LightTodoList = () => {
                 setTodos(displayTodos.filter(todo => todo.completed));
                 break;
             default:
-            setTodos(storedTodos ? JSON.parse(storedTodos) : []);
+            setTodos(getTodos());
             break;
         }
     }
-
+    
     const deleteTodo = (id) => {
         const updatedTodos = todos.filter(todo => todo.id !== id);
         setTodos(updatedTodos);
-        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+        setTodosToLocalStorage(updatedTodos);
     }
 
     const moveTodo = (dragIndex, hoverIndex) => {
@@ -75,7 +74,7 @@ export const LightTodoList = () => {
         updatedTodos.splice(hoverIndex, 0, draggedTodo);
     
         setTodos(updatedTodos);
-        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+        setTodosToLocalStorage(updatedTodos);
     };
 
     return <>

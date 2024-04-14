@@ -1,4 +1,5 @@
-.DarkHome {
+.DarkHome,
+.LightHome {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -7,7 +8,8 @@
     margin-top: 150px;
 }
 
-.darkModeImg {
+.darkModeImg,
+.lightModeImg {
     top: 0;
     width: 100vw;
     height: 280px;
