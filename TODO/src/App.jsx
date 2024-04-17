@@ -8,9 +8,9 @@ import { TodoFrom } from "./components/TodoForm";
 import "./App.css";
 
 function App() {
+
   const [todos, setTodos] = useState([]);
   const [showOnlyCompleted, setShowOnlyCompleted] = useState(false);
-  // const [showAllTodos, setShowAllTodos] = useState(true); 
   const [showOnlyActive, setShowOnlyActive]=useState(false);
 
   const todoToShow =
@@ -31,13 +31,15 @@ function App() {
   const onShowActivetodos =()=>{
     setShowOnlyCompleted(false);
     setShowOnlyActive(true);
-  }
+  };
 
   const onShowAll =()=>{
     setShowOnlyCompleted(false);
     setShowOnlyActive(false);
 
-  }
+  };
+
+  
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -65,15 +67,15 @@ function App() {
     setTodos(updateTodos);
   };
 
+
+
  const deleteTodo = (id) => {
-    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    const updatedTodos = todos.filter((todo) => todo.completed === false);
     setTodos(updatedTodos);
   };
 
-  // const onShowOnlyCompletedTodos = () => {
-  //   setShowOnlyCompleted(true);
-  //   setShowAllTodos(false); // כאשר נלחץ כפתור הושלמו, נציב את המשתנה הזה ל־false
-  // };
+ const todoLeft = todos.filter(todo => !todo.completed).length;
+
 
  
   return (
@@ -88,6 +90,7 @@ function App() {
           onShowComplited={onShowOnlyCompletedTodos}
           onShowAll={onShowAll}
           onShowActive={onShowActivetodos}
+          todoLeft={todoLeft}
          
         />
         

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Items } from "./Items";
 
-export function List({ todos, toggleComplete, deleteTodo ,onShowComplited,onShowAll,onShowActive}) {
+export function List({ todos, toggleComplete, deleteTodo ,onShowComplited,onShowAll,onShowActive,todoLeft}) {
   return (
     <div className="todo-list">
       <div className="list-container">
@@ -16,6 +16,7 @@ export function List({ todos, toggleComplete, deleteTodo ,onShowComplited,onShow
         />
       ))}
       </div>
+      <div> {todoLeft} Items left</div>
       <button className="button-completed" onClick={onShowComplited}>
         complited
       </button>
@@ -25,9 +26,10 @@ export function List({ todos, toggleComplete, deleteTodo ,onShowComplited,onShow
          <button className="button-Active" onClick={onShowActive}>
           Active
          </button>
-         <button className="button-Active" onClick={deleteTodo}>
+         <button className="button-Active" onClick={() => deleteTodo(deleteTodo)}>
           ClearComplete
          </button>
+         
 
     </div>
   );
