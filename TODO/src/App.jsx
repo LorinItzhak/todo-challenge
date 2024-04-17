@@ -3,7 +3,6 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { List } from "./components/List";
 import { Items } from "./components/Items";
-import { FilterButtons } from "./components/FilterButtons";
 import { TodoFrom } from "./components/TodoForm";
 import "./App.css";
 

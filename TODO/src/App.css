@@ -107,6 +107,7 @@ input[type="text" i] {
   outline: none;
 }
 input[type="text" i]:focus {
+  color: #ebe1e1;
   outline: none;
 }
 
@@ -156,3 +157,45 @@ h1 {
   overflow-y: scroll; 
   max-height: 200px;
 }
+
+.button-container {
+  max-width: 495px;
+  white-space: nowrap; 
+}
+
+.button-container button {
+  border: none;
+  display: inline-block; 
+  border-radius: 0px;
+  font-size: 15.5px;
+  color: #888;
+  padding-inline: 10px;
+   cursor: pointer;
+  
+} 
+
+.button-container button:active {
+  border: none;
+  color: aliceblue;
+}
+
+.button-container button:focus {
+  outline: none;
+}
+.todo-left{
+  pointer-events: none;
+  cursor:default ;
+}
+
+.button-container button:last-child {
+  padding-left: 62.2px;
+}
+.button-container button:first-child {
+  padding-right: 62.2px;
+}
+
+@media (prefers-color-scheme: light){ .button-container button {
+  background-color: hsl(235, 24%, 19%);
+  }}
+
+ 
